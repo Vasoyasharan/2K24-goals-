@@ -1,3 +1,3 @@
-# this is to-do-list for 2k24 goals completion
+#This is to-do-list for 2k24 goals.
 <br>
-# this is just for fun to make a to-do by coding
+# This is just for fun to make a to-do by coding
