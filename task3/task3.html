@@ -4,13 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Image Gallery</title>
+  <style>
+    .image-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .btn-container {
+        text-align: center;
+    }
+  </style>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </head>
 <body>
-
+    
+<div class="image-container">
 <img src="40.png" alt="Image" id="current-image">
 <p id="image-name">Yellow Color</p>
+</div>
+
+<div class="btn-container">
 <button id="change-image">Next Image</button>
+</div>
 
 <script>
   $(document).ready(function() {
