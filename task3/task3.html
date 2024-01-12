@@ -8,16 +8,17 @@
 </head>
 <body>
 
-<img src="40.png" alt="Image 1" id="current-image">
+<img src="image1.jpg" alt="Image" id="current-image">
 <p id="image-name">Image 1</p>
+<button id="change-image">Next Image</button>
 
 <script>
   $(document).ready(function() {
     var images = ["40.png", "42.png", "43.png"];
-    var names = ["Greyish color", "Lemon Yellow color", "Transparent Color"];
+    var names = ["Lemon Yellow Color", "Transparent Color", "Greyish Color"];
     var currentIndex = 0;
 
-    $("#current-image").on("click", function() {
+    $("#change-image").on("click", function() {
       currentIndex = (currentIndex + 1) % images.length;
       $("#current-image").attr("src", images[currentIndex]);
       $("#image-name").text(names[currentIndex]);
