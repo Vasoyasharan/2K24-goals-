@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <style>
+    .image-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<div class="image-container">
+  <img src="40.png" alt="Image 1" id="current-image">
+  <p id="image-name">Image 1</p>
+</div>
+
+<script>
+  $(document).ready(function() {
+    var images = ["40.png", "42.png", "43.png"];
+    var names = ["Image 1", "Image 2", "Image 3"];
+    var currentIndex = 0;
+
+    // Function to update the displayed image and name
+    function updateImage() {
+      $("#current-image").attr("src", images[currentIndex]);
+      $("#image-name").text(names[currentIndex]);
+    }
+
+    // Click event handler for the image
+    $("#current-image").on("click", function() {
+      // Move to the next image in the array
+      currentIndex = (currentIndex + 1) % images.length;
+      // Update the displayed image and name
+      updateImage();
+    });
+
+    // Initial setup
+    updateImage();
+  });
+</script>
+
+</body>
+</html>

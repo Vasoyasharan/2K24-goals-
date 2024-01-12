@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple Form with jQuery Validation</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+      }
+
+      .error-message {
+        color: red;
+        font-size: 12px;
+      }
+
+      .error-border {
+        border: 1px solid red;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="myForm" action="#" method="post">
+      <label for="field1">Field 1:</label>
+      <input type="text" id="field1" name="field1" required />
+      <div class="error-message" id="field1-error"></div>
+
+      <label for="field2">Field 2:</label>
+      <input type="text" id="field2" name="field2" required />
+      <div class="error-message" id="field2-error"></div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      $(document).ready(function () {
+        $("#field1").on("focus", function () {
+          $("#field1-error").text("* This is a Required Field");
+        });
+
+        $("#field1").on("blur", function () {
+          if ($(this).val().trim() === "") {
+            $("#field1-error").text("* This is a Required Field");
+          } else {
+            $("#field1-error").text("");
+          }
+        });
+
+        $("#field2").on("blur", function () {
+          if ($(this).val().trim() === "") {
+            $("#field2-error").text("* This is a Required Field");
+            $(this).addClass("error-border");
+          } else {
+            $("#field2-error").text("");
+            $(this).removeClass("error-border");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

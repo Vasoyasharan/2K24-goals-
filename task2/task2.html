@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<img src="40.png" alt="Image 1" id="current-image">
+<p id="image-name">Image 1</p>
+
+<script>
+  $(document).ready(function() {
+    var images = ["40.png", "42.png", "43.png"];
+    var names = ["Yellow Cover", "Black Cover", "Grey Cover"];
+    var currentIndex = 0;
+
+    $("#current-image").on("click", function() {
+      currentIndex = (currentIndex + 1) % images.length;
+      $("#current-image").attr("src", images[currentIndex]);
+      $("#image-name").text(names[currentIndex]);
+    });
+  });
+</script>
+
+</body>
+</html>
